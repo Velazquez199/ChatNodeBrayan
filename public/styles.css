@@ -1,0 +1,155 @@
+/* ===============================
+   1. Estilos Globales y Tipografía
+   =============================== */
+body {
+    /* Usar un color de fondo ligero para darle profundidad */
+    background-color: #f0f2f5; 
+    font-family: 'Nunito', sans-serif;
+    display: flex; /* Centrar el chat en la pantalla */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+h2 {
+    font-size: 20px;
+    padding: 10px 0;
+    color: #337ab7; /* Un azul corporativo */
+    text-align: center;
+    font-family: 'Poppins', sans-serif; /* Cambiar a una fuente más moderna */
+    margin-bottom: 20px;
+}
+
+/* ===============================
+   2. Contenedor Principal del Chat
+   =============================== */
+#app-chat {
+    /* display: none; */ /* Se maneja con JS */
+    max-width: 600px;
+    width: 90%; /* Ancho responsivo */
+    margin: 30px auto;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    /* Sombra más suave para un efecto flotante (Material Design) */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; /* Bordes más redondeados */
+    overflow: hidden; /* Asegura que todo el contenido se ajuste */
+}
+
+#panel-bienvenida {
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* ===============================
+   3. Entradas (Inputs) y Botones
+   =============================== */
+
+/* Estilo general para todos los inputs de texto */
+input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Muy importante para el padding y width */
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+/* Foco en los inputs */
+input[type="text"]:focus {
+    border-color: #337ab7;
+    outline: none; /* Eliminar el contorno feo del navegador */
+}
+
+/* Estilos específicos para los inputs de bienvenida y chat */
+#persona, #usuario {
+    /* Usar el estilo general de input */
+}
+
+/* Estilo para el botón de ingresar y enviar */
+#ingresar, #enviar {
+    background-color: #337ab7;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+#ingresar:hover, #enviar:hover {
+    background-color: #286090; /* Un azul un poco más oscuro al pasar el ratón */
+}
+
+#enviar {
+    width: 100%; /* El botón de enviar ocupa todo el ancho */
+}
+
+/* ===============================
+   4. Ventana de Mensajes
+   =============================== */
+#ventana-mensajes {
+    height: 400px;
+    overflow-y: auto; /* Scroll solo si es necesario */
+    background: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+    padding: 15px; /* Padding interno */
+    display: flex;
+    flex-direction: column;
+}
+
+#output p {
+    padding: 8px 12px;
+    margin: 5px 0;
+    border-radius: 18px; /* Bordes de burbuja de chat */
+    line-height: 1.5;
+    background-color: #e5e5ea; /* Burbuja gris claro por defecto */
+    max-width: 80%; /* Para que las burbujas no ocupen todo el ancho */
+}
+
+/* Estilo para el nombre de usuario */
+#output strong {
+    color: #337ab7;
+    font-weight: 600;
+    display: block; /* Para que el nombre esté en su propia línea pequeña */
+    font-size: 0.8em;
+}
+
+/* Estilo para el mensaje de 'escribiendo' */
+#escribiendo-mensaje {
+    color: #888;
+    font-style: italic;
+    padding: 5px 12px;
+    font-size: 0.9em;
+}
+
+/* El contenedor de entrada para el chat */
+#chat-input-area {
+    padding: 15px;
+    display: flex;
+    gap: 10px; /* Espacio entre el input y el botón */
+}
+
+/* Para mejorar la usabilidad, podríamos poner el input y el botón en un div */
+#mensaje {
+    flex-grow: 1; /* El input toma el espacio restante */
+    margin-bottom: 0; /* Eliminar el margin-bottom de la regla general */
+}
+
+/* Asumiendo que el input de #usuario se quiere mantener en la ventana del chat */
+#usuario {
+    width: 100%;
+    text-align: center;
+    background-color: #f0f2f5;
+    border: none;
+    font-size: 1em;
+    font-weight: bold;
+    color: #555;
+}
